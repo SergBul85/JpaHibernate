@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCSelect {
-    static final String DB_URL = "jdbc:mysql://localhost:3306/test_db";
     static final String USER = "jpauser";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/test_db";
     static final String PWD = "jpapwd";
 
     public static void main(String[] args) {
