@@ -22,6 +22,7 @@ public class JDBCInsert_v2 {
 //                    "(' " + student.getName() +
 //                    "', '" + student.getSurname() +
 //                    "', " + student.getAvgGrade() + ")";
+
             String sqlQuery = "INSERT INTO students (name, surname, avg_grade) VALUES ('Julia', 'Dean', 8.7)";
             statement.executeUpdate(sqlQuery);
             statement.close();
