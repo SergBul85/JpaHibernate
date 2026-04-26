@@ -1,4 +1,6 @@
-package org.hstn;
+package org.hstn.jdbc_examples;
+
+import org.hstn.entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
