@@ -1,4 +1,4 @@
-package org.hstn.jdbc_examples;
+package org.hstn.jdbc_crud;
 
 import org.hstn.entity.Student;
 
