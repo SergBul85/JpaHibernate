@@ -1,4 +1,4 @@
-package org.hstn;
+package org.hstn.jdbc_examples;
 
 import java.sql.*;
 import java.util.Scanner;
