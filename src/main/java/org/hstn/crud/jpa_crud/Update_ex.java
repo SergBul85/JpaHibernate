@@ -1,22 +1,30 @@
-package org.hstn.jpa_crud;
+package org.hstn.crud.jpa_crud;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.hstn.entity.Student;
+import org.hstn.crud.entity.Student;
 
-public class FInd_ex {
+public class Update_ex {
     public static void main(String[] args) {
-
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
         EntityManager entityManager = factory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
 
         Student student = null;
         try {
-            student = entityManager.find(Student.class, 99);
+            transaction.begin();
 
+            student = entityManager.find(Student.class, 2);
+            student.setAvgGrade(9.9);
+
+            transaction.commit();
         } catch (Exception e) {
-
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
         } finally {
             if (entityManager != null) {
                 entityManager.close();
@@ -24,7 +32,5 @@ public class FInd_ex {
             }
         }
         System.out.println(student);
-
     }
 }
-

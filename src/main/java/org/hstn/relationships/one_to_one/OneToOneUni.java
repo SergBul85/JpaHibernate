@@ -1,23 +1,27 @@
-package org.hstn.jpa_crud;
+package org.hstn.relationships.one_to_one;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.hstn.entity.Student;
+import org.hstn.relationships.one_to_one.entity.Passport;
+import org.hstn.relationships.one_to_one.entity.Student;
 
-public class Remove_ex {
+public class OneToOneUni {
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
-        EntityManager entityManager = factory.createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-course");
+        EntityManager entityManager = emf.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 
-        Student student = null;
         try {
             transaction.begin();
 
-            student = entityManager.find(Student.class, 1);
-            entityManager.remove(student);
+            Student student1 = new Student("Julia", "DEan", 8.3);
+            Passport passport1 = new Passport("julia.dean@gmail.com", 168, "green");
+            student1.setPassport(passport1);
+
+            entityManager.persist(student1);
+            entityManager.persist(passport1);
 
             transaction.commit();
         } catch (Exception e) {
@@ -28,9 +32,10 @@ public class Remove_ex {
         } finally {
             if (entityManager != null) {
                 entityManager.close();
-                factory.close();
+                emf.close();
             }
         }
-        System.out.println(student);
+
+
     }
 }

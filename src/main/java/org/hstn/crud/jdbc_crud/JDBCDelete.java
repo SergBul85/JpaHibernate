@@ -1,4 +1,4 @@
-package org.hstn.jdbc_crud;
+package org.hstn.crud.jdbc_crud;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

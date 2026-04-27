@@ -1,11 +1,11 @@
-package org.hstn.entity;
+package org.hstn.crud.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "test_students")
+//@Entity
+//@Table(name = "test_students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
