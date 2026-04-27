@@ -5,25 +5,24 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "students")
+@Table(name = "test_students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "first_name", unique = true)
     private String name;
 
-    @Column(name = "surname")
+//    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "avg_grade")
+    @Column(name = "avg_grade", nullable = false)
     private Double avgGrade;
 
     @Transient
     private LocalDateTime createdDate;
-
 
     public Student() {
     }
