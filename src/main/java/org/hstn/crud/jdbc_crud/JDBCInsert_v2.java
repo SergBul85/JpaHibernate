@@ -1,6 +1,6 @@
-package org.hstn.jdbc_crud;
+package org.hstn.crud.jdbc_crud;
 
-import org.hstn.entity.Student;
+import org.hstn.crud.entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
