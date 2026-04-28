@@ -16,12 +16,31 @@ public class OneToOneUni {
         try {
             transaction.begin();
 
-            Student student1 = new Student("Julia", "DEan", 8.3);
-            Passport passport1 = new Passport("julia.dean@gmail.com", 168, "green");
-            student1.setPassport(passport1);
+            //      region PERSIST
+            //            Student student1 = new Student("Isaak", "Sharp", 6.5);
+            //            Passport passport1 = new Passport("isaak.sharp@gmail.com", 175, "brown");
+            //            student1.setPassport(passport1);
+            //
+            //            entityManager.persist(passport1);
+            //            entityManager.persist(student1);
+            //  endregion
 
-            entityManager.persist(student1);
-            entityManager.persist(passport1);
+            //region FIND
+
+//            Student student = entityManager.find(Student.class, 400);
+//            System.out.println(student);
+//            System.out.println(student.getPassport());
+
+            //endregion
+
+            //region REMOVE
+
+            Student student = entityManager.find(Student.class, 2);
+            entityManager.remove(student);
+
+            //endregion
+
+
 
             transaction.commit();
         } catch (Exception e) {
