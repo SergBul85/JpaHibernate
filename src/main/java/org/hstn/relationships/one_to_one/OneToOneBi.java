@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 import org.hstn.relationships.one_to_one.entity.Passport;
 import org.hstn.relationships.one_to_one.entity.Student;
 
-public class OneToOneUni {
+public class OneToOneBi {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-course");
         EntityManager entityManager = emf.createEntityManager();
@@ -16,30 +16,33 @@ public class OneToOneUni {
         try {
             transaction.begin();
 
-            //      region PERSIST
-            //            Student student1 = new Student("Isaak", "Sharp", 6.5);
-            //            Passport passport1 = new Passport("isaak.sharp@gmail.com", 175, "brown");
-            //            student1.setPassport(passport1);
-            //
-            //            entityManager.persist(passport1);
-            //            entityManager.persist(student1);
-            //  endregion
+            //region PERSIST
+
+//            Student student = new Student("Frankie", "Perrie", 2.2);
+//            Passport passport = new Passport("fr.perri@gmail.com", 212, "brown_2");
+//
+//            passport.setStudent(student);
+//            student.setPassport(passport);
+//
+//            entityManager.persist(passport);
+
+            //endregion
 
             //region FIND
-
-//            Student student = entityManager.find(Student.class, 400);
-//            System.out.println(student);
-//            System.out.println(student.getPassport());
-
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            System.out.println(passport);
+//            System.out.println(passport.getStudent());
             //endregion
 
             //region REMOVE
 
-            Student student = entityManager.find(Student.class, 2);
-            entityManager.remove(student);
+//            Student student = entityManager.find(Student.class, 2);
+//            entityManager.remove(student);
+//            Passport passport = entityManager.find(Passport.class, 3);
+//            passport.getStudent().setPassport(null);
+//            entityManager.remove(passport);
 
             //endregion
-
 
             transaction.commit();
         } catch (Exception e) {
@@ -53,7 +56,6 @@ public class OneToOneUni {
                 emf.close();
             }
         }
-
 
     }
 }
