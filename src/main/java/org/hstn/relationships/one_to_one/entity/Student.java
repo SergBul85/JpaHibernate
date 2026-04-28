@@ -36,4 +36,13 @@ public class Student {
         this.avgGrade = avgGrade;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "avgGrade=" + avgGrade +
+                ", surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

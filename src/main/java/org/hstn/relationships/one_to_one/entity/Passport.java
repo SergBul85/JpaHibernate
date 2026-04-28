@@ -22,6 +22,9 @@ public class Passport {
     @Column(name = "eye_color")
     private String eyeColor;
 
+    @OneToOne(mappedBy = "passport", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Student student;
+
     public Passport(String email, int height, String eyeColor) {
         this.email = email;
         this.height = height;
@@ -31,4 +34,13 @@ public class Passport {
     public Passport() {
     }
 
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", height=" + height +
+                ", eyeColor='" + eyeColor + '\'' +
+                '}';
+    }
 }
