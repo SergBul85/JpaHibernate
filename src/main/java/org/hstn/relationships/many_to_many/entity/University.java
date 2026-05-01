@@ -10,8 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name = "universities")
+//@Entity
+//@Table(name = "universities")
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

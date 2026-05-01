@@ -1,15 +1,16 @@
-package org.hstn.relationships.many_to_many.entity;
+package org.hstn.persistence_context.entity;
 
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hstn.relationships.many_to_many.entity.University;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-//@Entity
-//@Table(name = "teachers")
+@Entity
+@Table(name = "teachers")
 public class Teacher {
 
     @Id
@@ -29,13 +30,6 @@ public class Teacher {
     @Column(name = "is_professor")
     private boolean isProfessor;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(
-            name = "teacher_uni",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "university_id")
-    )
-    private List<University> universities = new ArrayList<>();
 
     public Teacher(String name, String surname, String subject, boolean isProfessor) {
         this.name = name;
@@ -45,10 +39,6 @@ public class Teacher {
     }
 
     public Teacher() {
-    }
-
-    public void addUniversityToTeacher(University university) {
-        universities.add(university);
     }
 
     @Override
