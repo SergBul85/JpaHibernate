@@ -16,16 +16,16 @@ public class LoadingTypesEx {
 
             //region FIND
 
-            System.out.println("UNIVERSITY INFO");
-            University university = entityManager.find(University.class, 1);
-            System.out.println(university);
-
-            university.getStudents().size();
-
-            entityManager.close();
-
-            System.out.println("STUDENTS INFO");
-            university.getStudents().forEach(System.out::println);
+//            System.out.println("UNIVERSITY INFO");
+//            University university = entityManager.find(University.class, 1);
+//            System.out.println(university);
+//
+//            university.getStudents().size();
+//
+//            entityManager.close();
+//
+//            System.out.println("STUDENTS INFO");
+//            university.getStudents().forEach(System.out::println);
 
             //endregion
 

@@ -43,13 +43,13 @@ public class OneToManyBi {
 
             //region FIND
 
-            University university = entityManager.find(University.class, 3);
-            System.out.println(university);
-            System.out.println(university.getStudents());
-
-            Student student = entityManager.find(Student.class, 3);
-            System.out.println(student);
-            System.out.println(student.getUniversity());
+//            University university = entityManager.find(University.class, 3);
+//            System.out.println(university);
+//            System.out.println(university.getStudents());
+//
+//            Student student = entityManager.find(Student.class, 3);
+//            System.out.println(student);
+//            System.out.println(student.getUniversity());
 
             //endregion
 
