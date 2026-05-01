@@ -1,16 +1,17 @@
-package org.hstn.relationships.one_to_many.entity;
+package org.hstn.relationships.many_to_many.entity;
 
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hstn.relationships.one_to_many.entity.Student;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Data
-//@Entity
-//@Table(name = "universities")
+@Data
+@Entity
+@Table(name = "universities")
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +24,13 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
-//    @OrderBy("avgGrade DESC, surname DESC ")
-    private List<Student> students = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "teacher_uni",
+            joinColumns = @JoinColumn(name = "university_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
+    )
+    private List<Teacher> teachers = new ArrayList<>();
 
     public University(String name, Date foundingDate) {
         this.name = name;
@@ -35,10 +40,10 @@ public class University {
     public University() {
     }
 
-    public void addStudentToUniversity(Student student) {
-        students.add(student);
-//        student.setUniversity(this);
+    public void addTeacherToUniversity(Teacher teacher) {
+        teachers.add(teacher);
     }
+
 
     @Override
     public String toString() {
