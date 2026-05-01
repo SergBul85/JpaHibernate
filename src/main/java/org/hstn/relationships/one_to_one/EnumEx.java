@@ -21,8 +21,8 @@ public class EnumEx {
 //            student.setPassport(passport);
 //            entityManager.persist(student);
 
-            Student student = entityManager.find(Student.class, 1);
-            System.out.println(student.getPassport());
+//            Student student = entityManager.find(Student.class, 1);
+//            System.out.println(student.getPassport());
 
 
             transaction.commit();

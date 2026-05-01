@@ -1,13 +1,12 @@
-package org.hstn.relationships.one_to_one.entity;
+package org.hstn.relationships.one_to_many.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hstn.relationships.one_to_one.entity.Passport;
 
-import java.time.LocalDateTime;
-
-//@Data
-//@Entity
-//@Table(name = "students")
+@Data
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +22,9 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id")
-    private Passport passport;
+    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "university_id")
+    private University university;
 
     public Student() {
     }

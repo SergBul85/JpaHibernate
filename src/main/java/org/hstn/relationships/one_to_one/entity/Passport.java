@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hstn.relationships.one_to_one.EyeColor;
 
-@Data
-@Entity
-@Table(name = "passports")
+//@Data
+//@Entity
+//@Table(name = "passports")
 public class Passport {
 
     @Id
