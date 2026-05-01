@@ -1,9 +1,11 @@
-package org.hstn.relationships.one_to_many.entity;
+package org.hstn.relationships.one_to_many;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import org.hstn.relationships.one_to_many.entity.Student;
+import org.hstn.relationships.one_to_many.entity.University;
 
 import java.sql.Date;
 
@@ -52,8 +54,30 @@ public class OneToManyBi {
             //endregion
 
             //region REMOVE
-            Student student = entityManager.find(Student.class, 4);
-            entityManager.remove(student);
+//            Student student = entityManager.find(Student.class, 4);
+//            entityManager.remove(student);
+
+            //endregion
+
+            //region ORDER_BY
+
+//            University university = new University("DNU", Date.valueOf("2000-02-02"));
+//            Student s1 = new Student("Name_1","Surname_1",111.1);
+//            Student s2 = new Student("Name_2","Surname_2",22.2);
+//            Student s3 = new Student("Name_3","Surname_3",22.2);
+//            Student s4 = new Student("Name_4","Surname_4",4.4);
+//
+//            university.addStudentToUniversity(s1);
+//            university.addStudentToUniversity(s2);
+//            university.addStudentToUniversity(s3);
+//            university.addStudentToUniversity(s4);
+//
+//            entityManager.persist(university);
+
+            University university = entityManager.find(University.class, 1);
+            System.out.println(university);
+            System.out.println();
+            university.getStudents().stream().forEach(System.out::println);
 
             //endregion
 
