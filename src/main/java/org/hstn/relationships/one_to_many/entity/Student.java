@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hstn.relationships.one_to_one.entity.Passport;
 
-@Data
-@Entity
-@Table(name = "students")
+//@Data
+//@Entity
+//@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
