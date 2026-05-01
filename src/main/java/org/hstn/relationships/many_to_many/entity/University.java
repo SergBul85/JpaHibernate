@@ -24,7 +24,7 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "teacher_uni",
             joinColumns = @JoinColumn(name = "university_id"),
