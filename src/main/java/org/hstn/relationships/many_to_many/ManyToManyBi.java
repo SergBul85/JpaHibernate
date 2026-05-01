@@ -67,8 +67,8 @@ public class ManyToManyBi {
 //            Teacher teacher = entityManager.find(Teacher.class, 8);
 //            entityManager.remove(teacher);
 
-            University university = entityManager.find(University.class, 5);
-            entityManager.remove(university);
+//            University university = entityManager.find(University.class, 5);
+//            entityManager.remove(university);
 
             //endregion
 
