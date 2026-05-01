@@ -23,8 +23,8 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", cascade = {CascadeType.PERSIST})
-    @OrderBy("avgGrade DESC, surname DESC ")
+    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
+//    @OrderBy("avgGrade DESC, surname DESC ")
     private List<Student> students = new ArrayList<>();
 
     public University(String name, Date foundingDate) {
