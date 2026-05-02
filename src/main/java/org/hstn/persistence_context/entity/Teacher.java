@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "teachers")
+@Cacheable
 public class Teacher {
 
     @Id
