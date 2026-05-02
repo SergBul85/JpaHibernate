@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "teachers")
-@Cacheable
+//@Cacheable
 public class Teacher {
 
     @Id
@@ -41,6 +41,41 @@ public class Teacher {
 
     public Teacher() {
     }
+
+    @PrePersist
+    public void prePersist() {
+        System.out.println("@ Pre Persist");
+    }
+
+    @PostPersist
+    public void postPersist() {
+        System.out.println("@PostPersist");
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        System.out.println("@PreUpdate");
+    }
+    @PostUpdate
+    public void postUpdate() {
+        System.out.println("@PostUpdate");
+    }
+
+    @PreRemove
+    public void preRemove() {
+        System.out.println("@PreRemove");
+    }
+    @PostRemove
+    public void postRemove() {
+        System.out.println("@PostRemove");
+    }
+
+    @PostLoad
+    public void postLoad() {
+        System.out.println("@PostLoad");
+    }
+
+
 
     @Override
     public String toString() {
