@@ -6,34 +6,36 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.hstn.persistence_context.entity.Teacher;
 
-public class EntityStatesEx1 {
+public class TransactionEx2 {
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
-        EntityManager entityManager = factory.createEntityManager();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-course");
+        EntityManager entityManager = emf.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-
         try {
             transaction.begin();
-
-            Teacher teacher1 = new Teacher("Rio", "Berger", "Bio", false);
-            Teacher teacher2 = new Teacher("Karina", "Denis", "Econom", false);
+            Teacher teacher1 = new Teacher("Landry", "Shelton", "Econiomics", true);
+            Teacher teacher2 = new Teacher("Vera", "Valton", "Geography", true);
 
             entityManager.persist(teacher1);
+
+            Teacher teacher3 = entityManager.find(Teacher.class, 100);
+            System.out.println(teacher3.getSubject() + " " + teacher1.getSubject());
+
             entityManager.persist(teacher2);
 
             transaction.commit();
 
         } catch (Exception e) {
             if (transaction != null) {
+                System.out.println("Rollback !!!!");
                 transaction.rollback();
             }
             e.printStackTrace();
         } finally {
             if (entityManager != null) {
                 entityManager.close();
-                factory.close();
+                emf.close();
             }
         }
-
     }
 }
