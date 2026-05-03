@@ -13,13 +13,13 @@ public class JPQLEx1 {
         try {
             transaction.begin();
 
-            //region ALL STUDENT
-            //select * from students
+//            region ALL STUDENT
+//            select * from students
 //            Query query = entityManager.createQuery("select s from Student s");
 //            List<Student> students = query.getResultList();
 //            List<Student> students = entityManager.createQuery("select s from Student s").getResultList();
 //            students.forEach(System.out::println);
-            //endregion ALL STUDENT
+//            endregion ALL STUDENT
 
             //region ALL STUDENT WITH NAME LEO
 //            Query query = entityManager.createQuery("select s from Student s " +
