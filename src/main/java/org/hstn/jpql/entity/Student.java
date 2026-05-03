@@ -2,7 +2,6 @@ package org.hstn.jpql.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hstn.relationships.one_to_many.entity.University;
 
 @Data
 @Entity
@@ -22,9 +21,9 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "university_id")
-//    private University university;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "university_id")
+    private University university;
 
     public Student() {
     }
