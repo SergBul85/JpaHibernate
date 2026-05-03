@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Entity
-@Table(name = "teachers")
+//@Entity
+//@Table(name = "teachers")
 //@Cacheable
 public class Teacher {
 
