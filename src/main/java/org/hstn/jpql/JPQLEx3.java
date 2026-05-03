@@ -41,11 +41,11 @@ public class JPQLEx3 {
             //endregion AVG AVG
 
             //region DELETE
-            Query query = entityManager.createQuery("delete Student as s " +
-                    "where  s.avgGrade < :avgGrade or s.avgGrade is null or s.avgGrade = 7.77" );
-            query.setParameter("avgGrade", 7.5);
-            int i = query.executeUpdate();
-            System.out.println(i + " records deleted.");
+//            Query query = entityManager.createQuery("delete Student as s " +
+//                    "where  s.avgGrade < :avgGrade or s.avgGrade is null or s.avgGrade = 7.77" );
+//            query.setParameter("avgGrade", 7.5);
+//            int i = query.executeUpdate();
+//            System.out.println(i + " records deleted.");
             //endregion AVG AVG
 
             transaction.commit();
