@@ -47,13 +47,13 @@ public class JPQLEx4 {
             //endregion CROSS JOIN
 
             //region  CROSS JOIN
-            Query query = entityManager.createQuery("select u,s from University u " +
-                    "join u.students s");
-            List<Object[]> results = query.getResultList();
-
-            for (Object[] result : results) {
-                System.out.println(result[0] + "\t\t --> " + result[1]);
-            }
+//            Query query = entityManager.createQuery("select u,s from University u " +
+//                    "join u.students s");
+//            List<Object[]> results = query.getResultList();
+//
+//            for (Object[] result : results) {
+//                System.out.println(result[0] + "\t\t --> " + result[1]);
+//            }
             //endregion CROSS JOIN
 
             transaction.commit();
