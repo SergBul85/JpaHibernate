@@ -12,17 +12,17 @@ public class FlushEx1 {
         EntityManager entityManager = factory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
-            transaction.begin();
-
-            Student student = entityManager.find(Student.class, 1);
-            student.setAvgGrade(9.0);
-
-            Double avgGrade = entityManager.createQuery("select s.avgGrade from Student s " +
-                    "where s.id=1",  Double.class).getSingleResult();
-
-            System.out.println("avgGrade: " + avgGrade);
-
-            transaction.commit();
+//            transaction.begin();
+//
+//            Student student = entityManager.find(Student.class, 1);
+//            student.setAvgGrade(9.0);
+//
+//            Double avgGrade = entityManager.createQuery("select s.avgGrade from Student s " +
+//                    "where s.id=1",  Double.class).getSingleResult();
+//
+//            System.out.println("avgGrade: " + avgGrade);
+//
+//            transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();

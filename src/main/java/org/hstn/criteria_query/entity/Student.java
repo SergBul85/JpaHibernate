@@ -1,11 +1,11 @@
-package org.hstn.jpql.entity;
+package org.hstn.criteria_query.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-//@Data
-//@Entity
-//@Table(name = "students")
+@Data
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
