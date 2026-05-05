@@ -1,11 +1,11 @@
-package org.hstn.criteria_query.entity;
+package org.hstn.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,6 @@ public class Student {
 
     @Column(name = "avg_grade")
     private Double avgGrade;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "university_id")
-    private University university;
 
     public Student() {
     }
