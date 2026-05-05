@@ -10,14 +10,14 @@ public class HibernateEx3 {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
-                .configure("hibernare.cfg.xml")
+                .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
         Transaction transaction = session.getTransaction();
 
 //        SessionFactory factory = new Configuration()
-//                .configure("hibernare.cfg.xml")
+//                .configure("hibernate.cfg.xml")
 //                .addAnnotatedClass(Student.class)
 //                .buildSessionFactory();
 //

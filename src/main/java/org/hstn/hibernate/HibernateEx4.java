@@ -6,21 +6,22 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hstn.hibernate.entity.Student;
 
-public class HibernateEx2 {
+public class HibernateEx4 {
     public static void main(String[] args) {
 
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Student.class)
-                .buildSessionFactory();
-
-        Session session = factory.getCurrentSession();
-        Transaction transaction = session.getTransaction();
+      SessionFactory factory = new Configuration()
+              .configure("hibernate.cfg.xml")
+              .addAnnotatedClass(Student.class)
+              .buildSessionFactory();
+      Session session = factory.getCurrentSession();
+      Transaction transaction = session.getTransaction();
 
         try {
             transaction.begin();
 
             Student student1 = session.get(Student.class, 1);
+            session.remove(student1);
+
             System.out.println(student1);
 
             transaction.commit();

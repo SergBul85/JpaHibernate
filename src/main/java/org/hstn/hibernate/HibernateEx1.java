@@ -10,7 +10,7 @@ public class HibernateEx1 {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
-                .configure("hibernare.cfg.xml")
+                .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory();
 
