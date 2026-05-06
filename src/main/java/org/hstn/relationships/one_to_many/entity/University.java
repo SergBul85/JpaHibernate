@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Data
-//@Entity
-//@Table(name = "universities")
+@Data
+@Entity
+@Table(name = "universities")
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,8 @@ public class University {
     @Column(name = "founding_date")
     private Date foundingDate;
 
-    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
 //    @OrderBy("avgGrade DESC, surname DESC ")
+    @OneToMany(mappedBy = "university", cascade = CascadeType.PERSIST)
     private List<Student> students = new ArrayList<>();
 
     public University(String name, Date foundingDate) {
@@ -37,7 +37,7 @@ public class University {
 
     public void addStudentToUniversity(Student student) {
         students.add(student);
-//        student.setUniversity(this);
+        student.setUniversity(this);
     }
 
     @Override
