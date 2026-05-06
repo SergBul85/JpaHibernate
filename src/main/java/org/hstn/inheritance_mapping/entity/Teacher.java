@@ -8,8 +8,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "teachers")
+//@Entity
+//@Table(name = "teachers")
 public class Teacher extends Employee {
 
     @Column(name = "subject")
