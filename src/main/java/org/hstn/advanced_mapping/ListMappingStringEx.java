@@ -4,22 +4,32 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.hstn.advanced_mapping.entity.Address;
 import org.hstn.advanced_mapping.entity.Employee;
 
-public class CopositeTypeMappingEx {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListMappingStringEx {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-course");
         EntityManager entityManager = factory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-//            Address address = new Address("USA", "Chicago", "Dempster", 40);
-//            Employee employee = new Employee("Michael", 4000, 15.0, address);
-//            entityManager.persist(employee);
+
+            List<String> friends = new ArrayList<>();
+            friends.add("Roy_2");
+            friends.add("Kynglee_2");
+            friends.add("Eric_2");
+
+            Employee employee1 = new Employee("Rudolf", 2002, 2.2, friends);
+
+            entityManager.persist(employee1);
 
 //            Employee employee = entityManager.find(Employee.class, 1L);
 //            System.out.println(employee);
+//            System.out.println("--------------------");
+//            employee.getFriends().stream().forEach(System.out::println);
 
             transaction.commit();
         } catch (Exception e) {
