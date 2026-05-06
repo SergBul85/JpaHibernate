@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Driver extends Teacher {
+public class Driver extends Employee {
 
     @Column(name = "category")
     private Character category;
@@ -19,8 +19,8 @@ public class Driver extends Teacher {
     public Driver() {
     }
 
-    public Driver(String name, Integer salary, Double experience, String subject, boolean is_professor, Character category, String carBrand) {
-        super(name, salary, experience, subject, is_professor);
+    public Driver(String name, Integer salary, Double experience, Character category, String carBrand) {
+        super(name, salary, experience);
         this.category = category;
         this.carBrand = carBrand;
     }
