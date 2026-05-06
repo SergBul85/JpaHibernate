@@ -5,8 +5,8 @@ import lombok.Data;
 import org.hstn.relationships.one_to_one.entity.Passport;
 
 @Data
-@Entity
-@Table(name = "students")
+//@Entity
+//@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
