@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.hstn.advanced_mapping.entity.Employee;
+import org.hstn.advanced_mapping.entity.Friend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +18,14 @@ public class ListMappingStringEx {
         try {
             transaction.begin();
 
-            List<String> friends = new ArrayList<>();
-            friends.add("Roy_2");
-            friends.add("Kynglee_2");
-            friends.add("Eric_2");
-
-            Employee employee1 = new Employee("Rudolf", 2002, 2.2, friends);
-
-            entityManager.persist(employee1);
+//            List<Friend> friends = new ArrayList<>();
+//            friends.add("Roy_2");
+//            friends.add("Kynglee_2");
+//            friends.add("Eric_2");
+//
+//            Employee employee1 = new Employee("Rudolf", 2002, 2.2, friends);
+//
+//            entityManager.persist(employee1);
 
 //            Employee employee = entityManager.find(Employee.class, 1L);
 //            System.out.println(employee);
