@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -24,24 +27,30 @@ public class Employee {
     @Column(name = "experience")
     private Double experience;
 
-    @Embedded // OPTIONAL
-    @AttributeOverrides({
-            @AttributeOverride(name = "country", column = @Column(name = "emp_country")),
-            @AttributeOverride(name = "city", column = @Column(name = "emp_city")),
-            @AttributeOverride(name = "street", column = @Column(name = "emp_street")),
-            @AttributeOverride(name = "house", column = @Column(name = "emp_house"))
-    }
-    )
-    private Address address;
+//    @Embedded // OPTIONAL
+//    @AttributeOverrides({
+//            @AttributeOverride(name = "country", column = @Column(name = "emp_country")),
+//            @AttributeOverride(name = "city", column = @Column(name = "emp_city")),
+//            @AttributeOverride(name = "street", column = @Column(name = "emp_street")),
+//            @AttributeOverride(name = "house", column = @Column(name = "emp_house"))
+//    }
+//    )
+//    private Address address;
+
+    @ElementCollection()
+    @CollectionTable(name = "emp_friends", joinColumns = @JoinColumn(name = "emp_id"))
+    @Column(name = "friend_name")
+    List<String> friends = new ArrayList<>();
+
 
     public Employee() {
     }
 
-    public Employee(String name, Integer salary, Double experience, Address address) {
+    public Employee(String name, Integer salary, Double experience, List<String> friends) {
         this.name = name;
         this.salary = salary;
         this.experience = experience;
-        this.address = address;
+        this.friends = friends;
     }
 
     @Override
@@ -51,7 +60,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
                 ", experience=" + experience +
-                ", address=" + address +
+                ", friends=" + friends +
                 '}';
     }
 }
