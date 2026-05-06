@@ -1,0 +1,34 @@
+package org.hstn.inheritance_mapping.entity;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+
+public abstract class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "salaty")
+    private Integer salary;
+
+    @Column(name = "experience")
+    private Double experience;
+
+    public Employee() {
+    }
+
+    public Employee(String name, Integer salary, Double experience) {
+        this.name = name;
+        this.salary = salary;
+        this.experience = experience;
+    }
+}
