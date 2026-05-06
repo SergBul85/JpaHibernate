@@ -1,0 +1,39 @@
+package org.hstn.inheritance_mapping.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+public class Teacher extends Employee {
+
+    @Column(name = "subject")
+    private String subject;
+
+    @Column(name = "is_orofessor")
+    private boolean is_professor;
+
+    public Teacher() {
+    }
+
+    public Teacher(String name, Integer salary, Double experience, String subject, boolean is_professor) {
+        super(name, salary, experience);
+        this.subject = subject;
+        this.is_professor = is_professor;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id='" + getId() + '\'' +
+                "name='" + getName() + '\'' +
+                "salary='" + getSalary() + '\'' +
+                "experience='" + getExperience() + '\'' +
+                "subject='" + subject + '\'' +
+                ", is_professor=" + is_professor +
+                '}';
+    }
+}
